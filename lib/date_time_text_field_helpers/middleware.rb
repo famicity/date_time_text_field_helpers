@@ -15,6 +15,7 @@ module DateTimeTextFieldHelpers
 
     def normalize(hsh)
       hsh.each do |key, value|
+        puts hsh[key]
         hsh[key] = if value.is_a?(Hash)
           normalize value
         elsif key =~ /\([123]i\)$/
