@@ -15,7 +15,6 @@ module DateTimeTextFieldHelpers
 
     def normalize(hsh)
       hsh.each do |key, value|
-        puts hsh[key]
         hsh[key] = if value.is_a?(Hash)
           normalize value
         elsif key =~ /\([123]i\)$/
@@ -32,9 +31,9 @@ module DateTimeTextFieldHelpers
       value = value.gsub /\D+/, ''
       
       value = if value.to_i < @year_split
-        "20#{v}"
+        "20#{value}"
       else
-        "19#{v}"
+        "19#{value}"
       end if key =~ /\(1i\)$/ && value =~ /^\d{2}$/
 
       value
